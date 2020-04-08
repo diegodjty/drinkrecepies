@@ -1,18 +1,27 @@
-import React,{Fragment} from 'react';
+import React from 'react';
 import Header from './Components/Header';
 import Form from './Components/Form';
+import RecepiesList from './Components/RecepiesList';
+
+import CategoryProvider from './context/Category'
+import RecepiesProvider from './context/RecepiesContext'
+
 
 
 function App() {
   return (
-      <Fragment >
-        <Header /> 
-        <div className="container mt-5">
-          <div className="row">
-            <Form />
+      <CategoryProvider >
+        <RecepiesProvider>
+          <Header /> 
+          <div className="container mt-5">
+            <div className="row">
+              <Form />
+            </div>
+            <RecepiesList
+            />
           </div>
-        </div>
-      </Fragment>
+        </RecepiesProvider>
+      </CategoryProvider>
   );
 }
 
